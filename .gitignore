@@ -35,3 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Local Capture Artifacts ###
+.chrome-headless/
+.edge-headless/
+bootrun.log

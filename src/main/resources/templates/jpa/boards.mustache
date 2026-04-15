@@ -13,11 +13,16 @@
 </head>
 <body>
 <main>
-    <h1>예제 (3) Spring MVC + Mustache + JPA</h1>
+    <h1>예제 (3) / 예제 (4) Spring MVC + Mustache + JPA</h1>
     <div class="summary">
         <p>JPA는 0페이지부터 시작하므로 Controller에서 받은 <strong>page</strong>를 Service에 넘길 때 <strong>page - 1</strong>을 적용한다.</p>
         <p>현재 페이지: {{currentPage}} / 전체 페이지 수: {{totalPages}}</p>
     </div>
+
+    <form action="/jpa/boards/search" method="get">
+        <input type="text" name="keyword" value="{{keyword}}" placeholder="제목 검색어">
+        <button type="submit">검색</button>
+    </form>
 
     <table>
         <thead>
@@ -37,6 +42,25 @@
         {{/boards}}
         </tbody>
     </table>
+
+    <div class="summary">
+        {{#hasPrevious}}
+            <a href="{{path}}?keyword={{keyword}}&page={{previousPage}}">이전</a>
+        {{/hasPrevious}}
+
+        {{#pageNumbers}}
+            {{#current}}
+                <strong>{{number}}</strong>
+            {{/current}}
+            {{^current}}
+                <a href="{{path}}?keyword={{keyword}}&page={{number}}">{{number}}</a>
+            {{/current}}
+        {{/pageNumbers}}
+
+        {{#hasNext}}
+            <a href="{{path}}?keyword={{keyword}}&page={{nextPage}}">다음</a>
+        {{/hasNext}}
+    </div>
 
     <p><a href="/">홈으로</a></p>
 </main>

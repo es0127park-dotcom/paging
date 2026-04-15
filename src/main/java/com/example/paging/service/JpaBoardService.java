@@ -17,11 +17,19 @@ public class JpaBoardService {
 	}
 
 	public Page<Board> getBoards(int page, int size) {
+		return boardJpaRepository.findAll(createPageRequest(page, size));
+	}
+
+	public Page<Board> searchBoards(String keyword, int page, int size) {
+		return boardJpaRepository.findByTitleContaining(keyword, createPageRequest(page, size));
+	}
+
+	private PageRequest createPageRequest(int page, int size) {
 		PageRequest pageRequest = PageRequest.of(
 				page - 1,
 				size,
 				Sort.by(Sort.Direction.DESC, "id")
 		);
-		return boardJpaRepository.findAll(pageRequest);
+		return pageRequest;
 	}
 }

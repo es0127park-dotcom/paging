@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Paging Study Lab</title>
+    <style>
+        body { font-family: "Segoe UI", sans-serif; margin: 40px; line-height: 1.5; background: #f6f8fb; color: #1e293b; }
+        main { max-width: 960px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 24px; }
+        .card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+        .label { display: inline-block; margin-bottom: 12px; color: #2563eb; font-weight: 700; }
+        a { color: #0f172a; }
+        .actions { margin-top: 12px; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Paging Study Lab</h1>
+    <p>노션 예제 `(0) ~ (6)`를 실행 가능한 Spring Boot 프로젝트로 재구성했다.</p>
+    <p>브랜치를 이동하거나 현재 `main`에서 각 URL을 열어 단계별 결과를 확인할 수 있다.</p>
+
+    <section class="grid">
+        {{#steps}}
+            <article class="card">
+                <div class="label">{{label}}</div>
+                <h2>{{title}}</h2>
+                <p>{{summary}}</p>
+                <div class="actions">
+                    <a href="{{path}}">열기</a>
+                </div>
+            </article>
+        {{/steps}}
+    </section>
+</main>
+</body>
+</html>

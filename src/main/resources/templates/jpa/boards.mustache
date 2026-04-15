@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JPA 페이징</title>
+    <style>
+        body { font-family: "Segoe UI", sans-serif; margin: 40px; background: #f8fafc; color: #0f172a; }
+        main { max-width: 900px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+        th, td { padding: 14px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+        .summary { background: white; padding: 18px 20px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+    </style>
+</head>
+<body>
+<main>
+    <h1>예제 (3) Spring MVC + Mustache + JPA</h1>
+    <div class="summary">
+        <p>JPA는 0페이지부터 시작하므로 Controller에서 받은 <strong>page</strong>를 Service에 넘길 때 <strong>page - 1</strong>을 적용한다.</p>
+        <p>현재 페이지: {{currentPage}} / 전체 페이지 수: {{totalPages}}</p>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>제목</th>
+            <th>내용</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#boards}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+                <td>{{content}}</td>
+            </tr>
+        {{/boards}}
+        </tbody>
+    </table>
+
+    <p><a href="/">홈으로</a></p>
+</main>
+</body>
+</html>

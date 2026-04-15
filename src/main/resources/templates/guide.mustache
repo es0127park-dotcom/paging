@@ -13,12 +13,20 @@
 <body>
 <main>
     <h1>예제 (6) 학습 마무리</h1>
+    <p>이 프로젝트의 최종 `main` 브랜치는 노션 예제 `(0) ~ (6)`를 한 저장소 안에서 실행 가능하게 정리한 상태다.</p>
     <ol>
         <li>JPA는 0페이지부터 시작하므로 화면 파라미터에서 항상 <code>page - 1</code>을 적용해야 한다.</li>
         <li>페이징은 정렬 기준이 없으면 안정적으로 동작하지 않는다.</li>
         <li>검색 페이징은 페이지 링크에도 검색 조건이 유지되어야 한다.</li>
         <li>마지막 페이지와 범위를 벗어난 페이지는 방어 코드로 보정해야 한다.</li>
         <li><code>size</code>는 상한을 두어 과도한 요청을 막아야 한다.</li>
+    </ol>
+    <h2>추천 확인 순서</h2>
+    <ol>
+        <li><code>/steps/pure-java</code>에서 계산식을 먼저 확인한다.</li>
+        <li><code>/jdbc/boards</code>에서 OFFSET 기반 구현을 본다.</li>
+        <li><code>/jpa/boards</code>와 <code>/jpa/boards/search</code>에서 화면 계산을 본다.</li>
+        <li><code>/cursor</code>와 <code>/api/cursor/boards</code>에서 커서 흐름을 본다.</li>
     </ol>
     <p><a href="/">홈으로</a></p>
 </main>

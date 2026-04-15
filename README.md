@@ -21,3 +21,20 @@ Notion `기술 블로그 > 기술 샘플링 with AI > 페이징 (Paging)` 페이
 ```
 
 실행 후 [http://localhost:8080](http://localhost:8080)에서 단계별 예제를 볼 수 있다.
+
+## 브랜치 이동 예시
+
+```bash
+git switch step-2
+git switch step-4
+git switch main
+```
+
+## 주요 화면 / API
+
+- `/steps/pure-java`: 순수 Java 계산 공식
+- `/jdbc/boards`: `LIMIT / OFFSET` 기반 JdbcTemplate 페이징
+- `/jpa/boards`: JPA `Pageable` 기반 목록
+- `/jpa/boards/search?keyword=샘플&page=1`: 검색 조건 유지 + 3개 블록
+- `/cursor`: 커서 페이징 데모 화면
+- `/api/cursor/boards?cursor=86&size=10`: 커서 페이징 API

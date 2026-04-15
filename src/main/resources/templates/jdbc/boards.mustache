@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JdbcTemplate 페이징</title>
+    <style>
+        body { font-family: "Segoe UI", sans-serif; margin: 40px; background: #f8fafc; color: #0f172a; }
+        main { max-width: 900px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+        th, td { padding: 14px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+        .paging { margin-top: 20px; display: flex; gap: 10px; align-items: center; }
+        .paging a, .paging span { padding: 8px 12px; border-radius: 10px; text-decoration: none; background: white; color: #0f172a; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06); }
+        .current { background: #2563eb; color: white; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>예제 (2) Spring MVC + Mustache + JdbcTemplate</h1>
+    <p>정렬 기준은 <strong>id DESC</strong>, 조회는 <strong>LIMIT / OFFSET</strong>으로 직접 계산한다.</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>제목</th>
+            <th>내용</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#boards}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+                <td>{{content}}</td>
+            </tr>
+        {{/boards}}
+        </tbody>
+    </table>
+
+    <div class="paging">
+        {{#paging.hasPrevious}}
+            <a href="/jdbc/boards?page={{paging.previousPage}}">이전</a>
+        {{/paging.hasPrevious}}
+
+        {{#paging.pageNumbers}}
+            <a href="/jdbc/boards?page={{.}}">{{.}}</a>
+        {{/paging.pageNumbers}}
+
+        {{#paging.hasNext}}
+            <a href="/jdbc/boards?page={{paging.nextPage}}">다음</a>
+        {{/paging.hasNext}}
+    </div>
+
+    <p><a href="/">홈으로</a></p>
+</main>
+</body>
+</html>

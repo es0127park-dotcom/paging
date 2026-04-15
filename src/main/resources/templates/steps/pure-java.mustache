@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>순수 Java 페이징</title>
+    <style>
+        body { font-family: "Segoe UI", sans-serif; margin: 40px; line-height: 1.5; background: #f8fafc; color: #0f172a; }
+        main { max-width: 900px; margin: 0 auto; }
+        .panel { background: white; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+        code { background: #e2e8f0; padding: 2px 6px; border-radius: 6px; }
+        ul { padding-left: 20px; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>예제 (1) 순수 Java 페이징</h1>
+
+    <section class="panel">
+        <h2>핵심 공식</h2>
+        <p><code>startIndex = (currentPage - 1) * pageSize</code></p>
+        <p><code>endIndex = Math.min(startIndex + pageSize, totalCount)</code></p>
+        <p><code>totalPages = ceil(totalCount / pageSize)</code></p>
+    </section>
+
+    <section class="panel">
+        <h2>계산 결과</h2>
+        <p>currentPage: {{paging.currentPage}}</p>
+        <p>pageSize: {{paging.pageSize}}</p>
+        <p>totalCount: {{paging.totalCount}}</p>
+        <p>startIndex: {{paging.startIndex}}</p>
+        <p>endIndex: {{paging.endIndex}}</p>
+        <p>offset: {{paging.offset}}</p>
+        <p>limit: {{paging.limit}}</p>
+        <p>totalPages: {{paging.totalPages}}</p>
+        <p>pageNumbers: {{paging.pageNumbers}}</p>
+    </section>
+
+    <section class="panel">
+        <h2>현재 페이지 데이터</h2>
+        <ul>
+            {{#pageData}}
+                <li>{{.}}</li>
+            {{/pageData}}
+        </ul>
+    </section>
+
+    <p><a href="/">홈으로</a></p>
+</main>
+</body>
+</html>
